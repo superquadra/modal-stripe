@@ -1,0 +1,44 @@
+doctype 5
+html lang='pt-br'
+  head
+    meta charset='utf-8'
+    title Stripe Modal
+    == stylesheet_link_tag 'screen.css'
+
+  body
+    .modal-overlay
+
+    .modal
+      .modal-content
+
+        header
+          .header-image
+            i.fa.fa-home
+
+          .header-info
+            h1 Demo Site
+            h2 2 widgets ($20.00)
+          nav.header-nav
+            a class='close' href='#' &times;
+
+        .content
+          form
+            .form-group
+              .form-field.number
+                label for='paymentNumber' Card number
+                input type='text' id='paymentNumber' placeholder='•••• •••• •••• ••••'
+
+              .form-field.expiry
+                label for='paymentExpiry' Expires
+                input type='text' id='paymentExpiry' placeholder='MM / YY'
+
+              .form-field.name
+                label for='paymentName' Name on card
+                input type='text' id='paymentName' placeholder='Name on card'
+
+              .form-field.cvc
+                label for='paymentCVC' Card code
+                input type='text' id='paymentCVC' placeholder='CVC'
+
+            footer.form-actions
+              button type="submit" class="blue submit" Pay $20.00

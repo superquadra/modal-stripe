@@ -1,0 +1,230 @@
+@import ../components/bourbon/app/assets/stylesheets/bourbon.scss
+@import ../components/normalize-css/normalize.css
+@import ../components/font-awesome/scss/font-awesome
+
+// SETTINGS
+$z-index-base: 1040
+
+
+// GERAL
+body
+  background: #edeff2 image-url('fake/stripe-bg.png') 50% 0 no-repeat
+  background-size: 1310px 3448px
+  color: #848d9d
+  font-family: $helvetica
+
+*:focus
+  outline: 0
+
+*
+  +box-sizing(border-box)
+
+.content
+  +clearfix
+
+
+
+// MODAL
+.modal-overlay
+  background: rgba(#000, .4)
+  +background-image(radial-gradient(50% 50%, ellipse closest-corner, rgba(#000, .45), rgba(#000, .9)))
+  height: 100%
+  left: 0
+  opacity: .8
+  overflow: hidden
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: $z-index-base
+
+.modal
+  height: 100%
+  left: 0
+  padding: 0
+  position: absolute
+  text-align: center
+  top: 0
+  width: 100%
+  z-index: $z-index-base + 5
+
+  // Vertical centerer helper
+  &:before
+    content: ''
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+
+
+.modal-content
+  background-color: #fbfbfb
+  border-radius: 6px
+  box-shadow: 0 10px 50px rgba(0,0,0,.9), inset 0 -4px 3px rgba(0,0,0,.1)
+  display: inline-block
+  margin: 0 auto
+  max-width: 340px
+  position: relative
+  text-align: left
+  vertical-align: middle
+
+  header
+    background-color: #eff2f4
+    border-bottom: 1px solid darken(#eff2f4, 10%)
+    border-top-left-radius: 6px
+    border-top-right-radius: 6px
+    position: relative
+    box-shadow: inset 0 -1px 10px rgba(#000, .1)
+    +background-image(bottom, #e7ebef 0%, #eff3f5 100%)
+    +clearfix
+    text-shadow: 0 1px 0 rgba(#fff, .7)
+
+  .header-image
+    +size(64px)
+    float: left
+    margin: 20px 0 19px 24px
+    position: relative
+    border: 1px solid #538b3e
+    border-radius: 6px
+    overflow: hidden
+    background: #61a238
+    position: relative
+    color: #fff
+    text-shadow: 0 1px 0 rgba(#000, .2)
+    font-size: 42px
+    text-align: center
+
+    i
+      position: relative
+      top: 6px
+
+    &:after
+      display: block
+      content: ''
+      width: 100%
+      height: (64px/2)
+      background-color: rgba(#fff, .1)
+      position: absolute
+      top: 0
+      left: 0
+
+  .header-info
+    float: none
+    margin: 0 40px 22px 105px
+    padding-top: 30px
+
+    h1
+      color: #41444a
+      font-size: 18px
+      font-weight: bold
+      margin: 0 0 1px 0
+
+    h2
+      color: #929496
+      font-size: 14px
+      font-weight: 500
+      margin: 0 0 4px 0
+
+  nav.header-nav
+    height: 16px
+    margin-top: (-16px/2)
+    position: absolute
+    right: 20px
+    top: 50%
+
+    .close
+      font-size: 26px
+      line-height: 0
+
+    a
+      color: #a4a8ab
+      text-decoration: none
+      text-shadow: 0 1px 0 rgba(#fff, .6)
+
+      &:hover
+        color: darken(#a4a8ab, 30%)
+
+
+
+// SHARED
+%btn
+  border-radius: 6px
+  cursor: pointer
+  display: inline-block
+  font-size: 16px
+  line-height: 18px
+  padding: 10px 20px
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  text-shadow: 0 -1px 0 rgba(#000, .3)
+
+
+// FORMS
+form
+  padding: 20px 25px
+
+  .form-group
+    +clearfix
+
+  .form-field
+    float: left
+    margin-bottom: 20px
+    position: relative
+
+  .form-actions
+    border-top: 1px solid #ebeff2
+    padding: 20px 0 0 0
+
+  label
+    display: block
+    font-size: 14px
+    font-weight: 500
+    padding: 0 0 5px 0
+
+  .number, .name
+    width: 65%
+
+  .expiry, .cvc
+    width: 30%
+    float: right
+
+  .number
+    &:after
+      @extend .fa
+      content: $fa-var-credit-card
+      color: #b0b8ca
+      position: absolute
+      top: 29px
+      right: 10px
+      font-size: 23px
+
+  button
+    @extend %btn
+    +background-image(linear-gradient(bottom, #038ddd 0%, #72bfec 100%))
+    color: #fff
+    width: 100%
+    border: 1px solid #157fbc
+    border-radius: 7px
+    box-shadow: inset 0 1px 0 rgba(#fff, .3), inset 0 -3px 6px rgba(#fff, .3), 0 1px 1px rgba(#000, .2)
+    font-weight: bold
+
+    &:hover
+      background-color: darken(#30a2e3, 10%)
+
+#{$all-text-inputs}
+  background-color: #fff
+  border-radius: 6px
+  border: 1px solid #afb9c9
+  box-shadow: inset 0 1px 3px rgba(#000, .1)
+  font-size: 15px
+  padding: 9px 8px
+  width: 100%
+
+  +placeholder
+    color: #b0b8ca
+
+#{$all-text-inputs-hover}
+  border-color: darken(#afb9c9, 20%)
+
+#{$all-text-inputs-focus}
+  border-color: #70a7e4
+  box-shadow: inset 0 1px 3px rgba(#70a7e4, .3), 0 0 10px #70a7e4

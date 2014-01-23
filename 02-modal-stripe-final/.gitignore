@@ -1,0 +1,11 @@
+# Ignore Sass' cache
+/.sass-cache
+*.sassc
+
+/source/.DS_Store
+.DS_Store
+
+# Ignore bundler config
+/.bundle
+
+/fire_app_log.txt
