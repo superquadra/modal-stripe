@@ -1,0 +1,46 @@
+doctype 5
+html lang='pt-br'
+  head
+    meta charset='utf-8'
+    title Modal Stripe
+    == stylesheet_link_tag 'screen.css'
+
+  body
+    .modal-ovelay
+
+    .modal
+      .modal-content
+
+        header
+          .header-image
+            i.fa.fa-home
+
+          .header-info
+            h1 Demo Site
+            h2 2 widgets ($20.00)
+
+          nav.header-nav
+            a.close href='#' &times;
+
+        .body
+          form
+            .form-group
+
+              .form-field.number
+                label Card number:
+                input type='text' placeholder='•••• •••• •••• ••••'
+
+              .form-field.expires
+                label Expires:
+                input type='text' placeholder='MM / YY'
+
+              .form-field.name
+                label Name on card:
+                input type='text'
+
+              .form-field.cvc
+                label Card code:
+                input type='text' placeholder='CVC'
+
+            footer.form-actions
+              button type='submit' Pay $20.00

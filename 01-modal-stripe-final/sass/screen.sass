@@ -1,0 +1,199 @@
+@import ../components/normalize/normalize.css
+@import ../components/bourbon/app/assets/stylesheets/bourbon.scss
+@import ../components/font-awesome/scss/font-awesome.scss
+
+*
+  +box-sizing(border-box)
+
+body
+  background: #eceff2 image-url('fake/stripe-bg.png') 50% 0 no-repeat
+  background-size: 1310px 3448px
+  font-family: $helvetica
+
+
+.modal-ovelay
+  position: fixed
+  +background-image( radial-gradient(50% 50%, ellipse cover, rgba(#000, .4), rgba(#000, .9)) )
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  overflow: hidden
+  z-index: 1040
+
+.modal
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  text-align: center
+  z-index: 1045
+
+  &:before
+    content: ''
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+
+.modal-content
+  background-color: #fbfbfb
+  border-radius: 6px
+  display: inline-block
+  box-shadow: 0 5px 25px rgba(#000, .8), inset 0 -2px 2px rgba(#000, .1)
+  position: relative
+  vertical-align: middle
+  text-align: left
+  margin: 0 auto
+  max-width: 340px
+
+header
+  +linear-gradient(#eef1f3, #e5e9ec)
+  +clearfix
+  border-top-left-radius: 6px
+  border-top-right-radius: 6px
+  position: relative
+
+  h1, h2
+    margin: 0
+    padding: 0
+    line-height: 100%
+    text-shadow: 0 1px 0 #fff
+
+  h1
+    font-size: 18px
+    color: #41444a
+    margin-bottom: 5px
+
+  h2
+    font-size: 14px
+    color: #929496
+    font-weight: 500
+
+  .header-image
+    +size(64px)
+    background-color: #61a238
+    float: left
+    border: 1px solid #538b3e
+    border-radius: 6px
+    box-shadow: inset 0 1px 0 rgba(#fff, .1)
+    margin: 20px 0 20px 24px
+    position: relative
+    text-align: center
+
+    i
+      color: #fff
+      font-size: 48px
+      text-shadow: 0 1px 0 rgba(#000, .2)
+      position: relative
+      top: 7px
+
+    &:after
+      content: ''
+      display: block
+      width: 100%
+      height: (64px/2)
+      background-color: rgba(#fff, .1)
+      position: absolute
+      top: 0
+      left: 0
+
+  .header-info
+    float: left
+    margin: 32px 70px 20px 17px
+
+  .header-nav
+    position: absolute
+    right: 25px
+    top: 50%
+    font-size: 25px
+    line-height: 100%
+    height: 25px
+    margin-top: -(25px/2)
+
+    a
+      text-decoration: none
+      color: #bebebe
+      text-shadow: 0 1px 0 #fff
+
+      &:hover
+        color: #333
+
+form
+  padding: 24px
+
+  label
+    display: block
+    color: #848d9d
+    font-size: 14px
+    line-height: 100%
+    font-weight: 500
+    padding-bottom: 5px
+
+  .form-field
+    float: left
+    margin-bottom: 20px
+    position: relative
+
+  .number, .name
+    width: 65%
+
+  .expires, .cvc
+    width: 30%
+    float: right
+
+  .number
+    &:after
+      @extend .fa
+      content: $fa-var-credit-card
+      color: #e3ebf3
+      position: absolute
+      font-size: 23px
+      right: 10px
+      top: 25px
+
+
+*:focus
+  outline: 0
+
+#{$all-text-inputs}
+  background-color: #fff
+  border-radius: 6px
+  border: 1px solid #b0baca
+  width: 100%
+  font-size: 15px
+  box-shadow: inset 0 1px 3px rgba(#000, .1)
+  padding: 8px
+
+  +placeholder
+    color: #b0b8ca
+
+#{$all-text-inputs-hover}
+  border: 1px solid darken(#b0baca, 20%)
+
+#{$all-text-inputs-focus}
+  border: 1px solid #70a7e4
+  box-shadow: inset 0 1px 3px rgba(#70a7e4, .3), 0 0 5px #70a7e4
+
+.form-group
+  +clearfix
+
+.form-actions
+  border-top: 1px solid #ebeff2
+  padding: 20px 0 0 0
+
+  button
+    border-radius: 6px
+    display: block
+    width: 100%
+    font-size: 16px
+    line-height: 100%
+    color: #fff
+    text-align: center
+    font-weight: bold
+    text-shadow: 0 -1px 1px rgba(#000, .3)
+    border: 1px solid #157fbc
+    background-color: #3fa8e5
+    +linear-gradient(#73c0ec, #018cdd)
+    padding: 10px 20px
+    box-shadow: inset 0 1px 0 rgba(#fff, .3), inset 0 -3px 4px rgba(#fff, .3), 0 1px 1px rgba(#000, .2)
